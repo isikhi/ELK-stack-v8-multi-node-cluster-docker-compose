@@ -1,3 +1,12 @@
+### Set this to .env or your environment.
+#ELASTIC_STACK_VERSION
+#ELASTIC_PASSWORD
+#KIBANA_PASSWORD
+#APM_PORT
+#ES_PORT
+#ELASTIC_CLUSTER_NAME
+#ELASTIC_LICENSE
+#KIBANA_PORT
 version: "3.8"
 services:
   setup:
@@ -8,10 +17,10 @@ services:
     command: >
       bash -c '
         if [ x${ELASTIC_PASSWORD} == x ]; then
-          echo "Set the ELASTIC_PASSWORD environment variable in the .env file";
+          echo "Set the ELASTIC_PASSWORD environment variable in the environment";
           exit 1;
         elif [ x${KIBANA_PASSWORD} == x ]; then
-          echo "Set the KIBANA_PASSWORD environment variable in the .env file";
+          echo "Set the KIBANA_PASSWORD environment variable in the environment";
           exit 1;
         fi;
         if [ ! -f config/certs/ca.zip ]; then
